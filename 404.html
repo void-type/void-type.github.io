@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Not found | void-type</title>
+    <link rel="stylesheet" href="/site.css" />
+    <script>
+      // GitHub Pages serves only this root 404.html for missing paths.
+      // Deep links into single-page apps are sent to the app's index.html with the path in a query string.
+      // The app's index.html restores the path before the app starts.
+      var spaApps = ["payment-calculator"];
+
+      var l = window.location;
+      var segments = l.pathname.split("/");
+      var app = segments[1];
+
+      if (spaApps.indexOf(app) !== -1 && segments.length > 2) {
+        var rest = segments.slice(2).join("/");
+        var extraQuery = l.search ? "&" + l.search.slice(1) : "";
+
+        l.replace(
+          "/" + app + "/?redirect=" + encodeURIComponent(rest) + extraQuery + l.hash
+        );
+      }
+    </script>
+  </head>
+
+  <body>
+    <main>
+      <section class="vt-section">
+        <div class="vt-section-content">
+          <h1>Page not found</h1>
+          <p><a href="/">Return to the void-type home page.</a></p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

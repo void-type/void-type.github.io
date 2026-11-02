@@ -7,6 +7,28 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <title>Payment Calculator | void-type</title>
+    <base href="/payment-calculator/" />
+    <script>
+      // Restore the deep link path saved by the root 404.html (GitHub Pages SPA fallback).
+      (function () {
+        var l = window.location;
+        var params = new URLSearchParams(l.search);
+        var redirect = params.get("redirect");
+        if (redirect === null) {
+          return;
+        }
+        params.delete("redirect");
+        var query = params.toString();
+        window.history.replaceState(
+          null,
+          "",
+          "/payment-calculator/" +
+            redirect.replace(/^\/+/, "") +
+            (query ? "?" + query : "") +
+            l.hash
+        );
+      })();
+    </script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
